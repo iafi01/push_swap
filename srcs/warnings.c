@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   warnings.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/20 15:07:04 by liafigli         ###   ########.fr       */
+/*   Created: 2021/05/20 12:01:53 by liafigli          #+#    #+#             */
+/*   Updated: 2021/05/23 13:13:47 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/includes/libft.h"
-# include <stdlib.h>
+#include "../includes/push_swap.h"
 
-typedef struct  s_stack
+static int ft_strlenn(char *s)
 {
-    int	num;
-	int diff;
-	struct s_stack *next;
-} t_stack;
+    int i;
 
-void finish(char *s);
+    i = 0;
+    while (s[i])
+        i++;
+    return (i);
+}
 
-#endif
+void finish(char *s)
+{
+    write(1, &s, ft_strlen(s));
+    exit(0);
+}
