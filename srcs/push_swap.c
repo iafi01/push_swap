@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/23 16:19:13 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/23 17:26:34 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ static int    ft_atoi(const char *str)
     return (sum * sign);
 }
 
-int main(int argc, char **argv)
+int check_errors(int argc, char **argv, t_stack *lista)
 {
-    int    	i;
+	int    	i;
     int 	j;
     int 	n;
     int integers[argc-1];
@@ -72,4 +72,12 @@ int main(int argc, char **argv)
         }
         integers[i++] = n;
     }
+}
+
+int main(int argc, char **argv)
+{
+    t_stack *stackA;
+	t_stack *stackb;
+
+	
 }

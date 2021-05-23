@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/23 14:11:50 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/23 17:05:27 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 typedef struct  s_stack
 {
     int	num;
-	int diff;
 	struct s_stack *next;
 } t_stack;
 
