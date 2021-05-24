@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   warnings.c                                         :+:      :+:    :+:   */
+/*   swaps.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 12:01:53 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/24 15:24:51 by liafigli         ###   ########.fr       */
+/*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
+/*   Updated: 2021/05/24 14:53:32 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-void _error(char *s)
+int swap(int *a, int *b)
 {
-    write(1, s, ft_strlen(s));
-    exit(0);
+    int tmp;
+    
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
 }
