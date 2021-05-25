@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/25 14:44:24 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/25 15:48:39 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,22 @@ t_stack *create_new_node(void)
     return (first);
 }
 
-t_stack    *copy_struct(int *valori)
+t_stack    *copy_struct(int *valori, int argc)
 {
     t_stack *stack1;
+    t_stack *ret;
     int i;
 
     stack1 = create_new_node();
+    ret = stack1;
     i = 1;
-    while (i < valori[0])
+    while (i < argc)
     {
         stack1->num = valori[i++];
         stack1->next = create_new_node();
+        stack1 = stack1->next;
     }
-    return (stack1);
+    return (ret);
 }
 
 static int    ft_atoi_swap(const char *str)
@@ -105,8 +108,16 @@ int main(int argc, char **argv)
     int integers[argc - 1];
     
     valori = check_value(argc, argv, integers);
-    stack1 = copy_struct(valori);
+    stack1 = copy_struct(valori, argc);
     stack2 = NULL;
+
+    t_stack *tmp;
+    tmp = stack1;
+    while (tmp)
+    {
+        printf("%d\n",tmp->num);
+        tmp = tmp->next;
+    }
 }
 
 
