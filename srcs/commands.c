@@ -6,9 +6,11 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:39:44 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/24 15:04:53 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:27:50 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/push_swap.h"
 
 //sa sb
 int swap_all(t_stack **head)

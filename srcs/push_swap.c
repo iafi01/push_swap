@@ -6,11 +6,11 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/24 17:36:14 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:44:24 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -18,9 +18,10 @@ t_stack *create_new_node(void)
 {
     t_stack *first;
 
-    first = (t_stack)malloc(sizeof(t_stack));
+    first = (t_stack*)malloc(sizeof(t_stack));
     first->num = 0;
     first->next = NULL;
+    return (first);
 }
 
 t_stack    *copy_struct(int *valori)
@@ -34,10 +35,11 @@ t_stack    *copy_struct(int *valori)
     {
         stack1->num = valori[i++];
         stack1->next = create_new_node();
-    }    
+    }
+    return (stack1);
 }
 
-static int    ft_atoi(const char *str)
+static int    ft_atoi_swap(const char *str)
 {
     int						i;
     int						sign;
@@ -68,12 +70,11 @@ static int    ft_atoi(const char *str)
     return (sum * sign);
 }
 
-char *check_value(int argc, char **argv)
+int *check_value(int argc, char **argv, int *integers)
 {
 	int    	i;
     int 	j;
     int 	n;
-    int integers[argc-1];
     int len;
     
     len = 0;
@@ -82,9 +83,9 @@ char *check_value(int argc, char **argv)
     {
         j = 0;
         len = i;
-        if (ft_atoi(argv[i]) == -1 && strcmp(argv[i],"-1") != 0)
+        if (ft_atoi_swap(argv[i]) == -1 && strcmp(argv[i],"-1") != 0)
             _error("Errore Min/Max/Float");
-        n = ft_atoi(argv[i]);
+        n = ft_atoi_swap(argv[i]);
         while (len != 0 && i != 1)
         {
             if (n == integers[j++])
@@ -92,7 +93,6 @@ char *check_value(int argc, char **argv)
             len--;
         }
         integers[i++] = n;
-        printf("\n%d\n",n);
     }
     return (integers);
 }
@@ -102,14 +102,15 @@ int main(int argc, char **argv)
     t_stack *stack1;
     t_stack *stack2;
     int *valori;
+    int integers[argc - 1];
     
-    valori = check_value(argc, argv);
+    valori = check_value(argc, argv, integers);
     stack1 = copy_struct(valori);
     stack2 = NULL;
 }
 
-/*
-valori[0] = argc-1 come istanziato su
 
-gcc srcs/push_swap.c srcs/warnings.c libft/srcs/*.c
-*/
+//valori[0] = argc-1 come istanziato su
+
+//gcc srcs/push_swap.c srcs/warnings.c libft/srcs/*.c
+

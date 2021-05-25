@@ -6,11 +6,13 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/24 14:53:32 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/25 14:43:22 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int swap(int *a, int *b)
+#include "../includes/push_swap.h"
+
+void swap(int *a, int *b)
 {
     int tmp;
     
