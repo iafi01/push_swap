@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/25 15:48:39 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/25 18:10:11 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_stack    *copy_struct(int *valori, int argc)
     return (ret);
 }
 
-static int    ft_atoi_swap(const char *str)
+int    ft_atoi_swap(const char *str)
 {
     int						i;
     int						sign;
@@ -104,14 +104,14 @@ int main(int argc, char **argv)
 {
     t_stack *stack1;
     t_stack *stack2;
-    int *valori;
     int integers[argc - 1];
     
-    valori = check_value(argc, argv, integers);
-    stack1 = copy_struct(valori, argc);
+    check_value(argc, argv, integers);
+    stack1 = copy_struct(integers, argc);
     stack2 = NULL;
 
     t_stack *tmp;
+    swap_all(stack1);
     tmp = stack1;
     while (tmp)
     {
@@ -120,8 +120,11 @@ int main(int argc, char **argv)
     }
 }
 
-
-//valori[0] = argc-1 come istanziato su
-
-//gcc srcs/push_swap.c srcs/warnings.c libft/srcs/*.c
-
+/*  t_stack *tmp;
+    tmp = stack1;
+    while (tmp)
+    {
+        printf("%d\n",tmp->num);
+        tmp = tmp->next;
+    }
+*/
