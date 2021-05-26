@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:39:44 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/25 18:09:38 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:23:45 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,12 @@ int swap_all(t_stack *head)
     return (0);
 }
 
-int rotate_all(t_stack *head)
+t_stack *rotate_all(t_stack *head)
 {
-    t_stack *tmp;
-
-    tmp = head;/*
-    while (tmp)
-        tmp = tmp->next;
-    tmp->next = create_new_node();
-    tmp->next = head;
-    head->next = NULL;*/
-    return (0);
+    while (head)
+    {
+        head = head->next;
+    }
+        
+    return (head);
 }

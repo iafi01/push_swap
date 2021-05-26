@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/25 17:39:31 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:14:30 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void swap(int *a, int *b);
 
 //commands
 int swap_all(t_stack *head);
-int rotate_all(t_stack *head);
+t_stack *rotate_all(t_stack *head);
 
 //push_swap
 t_stack *create_new_node(void);

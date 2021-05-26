@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/25 18:10:11 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:10:57 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
     stack2 = NULL;
 
     t_stack *tmp;
-    swap_all(stack1);
+    rotate_all(stack1);
     tmp = stack1;
     while (tmp)
     {
