@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/26 16:14:30 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:10:19 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 
 #include "../libft/includes/libft.h"
 #include <stdlib.h>
-
-typedef struct  s_stack
-{
-    int	num;
-	struct s_stack *next;
-} t_stack;
+#include <stdio.h>
 
 //warnings
 void _error(char *s);
 
 //swaps
 void swap(int *a, int *b);
+void print_list(t_stack *stack1);
 
 //commands
 int swap_all(t_stack *head);
-t_stack *rotate_all(t_stack *head);
+void rotate_all(t_stack **head);
 
 //push_swap
 t_stack *create_new_node(void);

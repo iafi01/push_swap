@@ -6,13 +6,11 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/26 16:10:57 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:11:13 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
-#include <string.h>
 
 t_stack *create_new_node(void)
 {
@@ -86,7 +84,7 @@ int *check_value(int argc, char **argv, int *integers)
     {
         j = 0;
         len = i;
-        if (ft_atoi_swap(argv[i]) == -1 && strcmp(argv[i],"-1") != 0)
+        if (ft_atoi_swap(argv[i]) == -1 && ft_strcmp(argv[i],"-1") != 0)
             _error("Errore Min/Max/Float");
         n = ft_atoi_swap(argv[i]);
         while (len != 0 && i != 1)
@@ -110,14 +108,8 @@ int main(int argc, char **argv)
     stack1 = copy_struct(integers, argc);
     stack2 = NULL;
 
-    t_stack *tmp;
-    rotate_all(stack1);
-    tmp = stack1;
-    while (tmp)
-    {
-        printf("%d\n",tmp->num);
-        tmp = tmp->next;
-    }
+    rotate_all(&stack1);
+    print_list(stack1);
 }
 
 /*  t_stack *tmp;

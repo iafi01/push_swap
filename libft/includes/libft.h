@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 18:59:38 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/11 11:22:26 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:54:47 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct  s_stack
 {
-	void			*content;
-	struct s_list	*next;
-}				t_list;
+    int	num;
+	struct s_stack *next;
+} t_stack;
 
 size_t			ft_strlen(const char *str);
 int				ft_isascii(int c);
@@ -69,17 +69,15 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 ** Bonus
 */
 
-t_list			*ft_lstnew(void *content);
-t_list			*ft_lstlast(t_list *lst);
-int				ft_lstsize(t_list *lst);
-void			ft_lstadd_front(t_list **lst, t_list *new);
-void			ft_lstadd_back(t_list **lst, t_list *new);
+t_stack			*ft_lstnew(int content);
+t_stack			*ft_lstlast(t_stack *lst);
+int				ft_lstsize(t_stack *lst);
+void			ft_lstadd_front(t_stack **lst, t_stack *new);
+void			ft_lstadd_back(t_stack *lst, t_stack *new);
 
-void			ft_lstdelone(t_list *lst, void (*del)(void *));
-void			ft_lstclear(t_list **lst, void (*del)(void*));
-void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
-					void (*del)(void *));
+void			ft_lstdelone(t_stack *lst, void (*del)(int));
+void			ft_lstclear(t_stack **lst, void (*del)(int));
+void			ft_lstiter(t_stack *lst, void (*f)(int));
 int				ft_putchar(char c);
 int				ft_putstr(char *s);
 void			ft_strdel(char **as);
