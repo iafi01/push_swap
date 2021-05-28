@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/27 15:55:47 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/28 14:04:29 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void _error(char *s);
 
 //swaps
 void swap(int *a, int *b);
-void print_list(t_stack *stack1);
+void print_list(t_stack *stack1, t_stack *stack2);
 void delete_last_node(t_stack **head);
 
 //commands
