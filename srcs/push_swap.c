@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/27 12:04:46 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:14:13 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ t_stack    *copy_struct(int *valori, int argc)
         stack1->next = create_new_node();
         stack1 = stack1->next;
     }
+    stack1 = ret;
+    //delete_last_node(&stack1);
     return (ret);
 }
 
@@ -108,6 +110,9 @@ int main(int argc, char **argv)
     stack1 = copy_struct(integers, argc);
     stack2 = NULL;
 
-    //rotate_all(&stack1);
     print_list(stack1);
+    push_on_stack(&stack1, &stack2);
+    printf("\n.....\n");
+    print_list(stack1);
+    print_list(stack2);
 }

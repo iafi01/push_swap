@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:39:44 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/26 18:51:52 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/28 12:18:13 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,42 @@ void rotate_all(t_stack **head)
 	last->next = first;
 	first->next = NULL;
 	*head = stack;
+}
+
+void rev_rotate_all(t_stack **head)
+{
+	t_stack	*first;
+	t_stack	*last;
+	t_stack *penultimo;
+
+	first = *head;
+	if (!(first && first->next))
+		return ;
+	last = first;
+	while (last->next)
+	{
+		penultimo = last;
+		last = last->next;
+	}
+	last->next = first;
+	penultimo->next = NULL;
+	*head = last;
+}
+
+void push_on_stack(t_stack **head, t_stack **head2)
+{
+	t_stack *stack1;
+	t_stack *stack2;
+	t_stack *tmp;
+
+	tmp = *head;
+	stack1 = (*head)->next;
+	stack2 = *head2;
+
+	tmp->next = NULL;
+	if (stack2)
+		tmp->next = stack2;
+	stack2 = tmp;
+	*head = stack1;
+	*head2 = stack2;
 }
