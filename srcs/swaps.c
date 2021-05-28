@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/28 14:21:00 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/28 14:36:32 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ void swap(int *a, int *b)
 
 void print_list(t_stack *stack1, t_stack *stack2)
 {
-    printf(" --------------\n");
-    printf("| stack1 stack2|\n");
+    ft_putstr(" --------------\n");
+    ft_putstr("| stack1 stack2|\n");
     while (stack1 || stack2)
     {
-        printf(" --------------\n");
-        printf("|  ");
+        ft_putstr(" --------------\n");
+        ft_putstr("|  ");
         if (stack1)
-            printf("%d",stack1->num);
-        printf("    |");
+            ft_putstr("%d",stack1->num);
+        ft_putstr("    |");
         if (stack2)
-            printf("%d",stack2->num);
-        printf("      |");
-        printf("\n");
+            ft_putstr("%d",stack2->num);
+        ft_putstr("      |");
+        ft_putstr("\n");
         stack1 = stack1->next;
     }
-    printf(" --------------\n");
+    ft_putstr(" --------------\n");
 }
 
 void delete_last_node(t_stack **head)
