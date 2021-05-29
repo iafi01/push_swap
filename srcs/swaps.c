@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/29 12:05:30 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/29 14:57:16 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,7 @@ int ft_under_five(int argc, t_stack **stack1, t_stack **stack2)
         algo_3(stack1);
     if (params == 4)
 		algo_4(stack1, stack2);
+    if (params == 5)
+		algo_5(stack1, stack2);
     return (0);
 }
