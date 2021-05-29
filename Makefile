@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 12:01:51 by liafigli          #+#    #+#              #
-#    Updated: 2021/05/25 15:15:27 by liafigli         ###   ########.fr        #
+#    Updated: 2021/05/29 12:07:50 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDE = 	includes/push_swap.h
 
 FOLDER  = srcs
 
-FILES	=	push_swap.c warnings.c commands.c swaps.c
+FILES	=	push_swap.c warnings.c commands.c swaps.c swaps2.c
 SRCS	= $(addprefix ${FOLDER}/, ${FILES})
 FILESS	=	 $(SRCS:.c=.o)
 

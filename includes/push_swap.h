@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/29 10:07:03 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/29 12:05:56 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void print_list(t_stack *stack1, t_stack *stack2);
 void delete_last_node(t_stack **head);
 void algo_3(t_stack **stack1);
 int ft_under_five(int argc, t_stack **stack1, t_stack **stack2);
+
+//swaps2
+void    algo_4(t_stack **stack1, t_stack **stack2);
 
 //commands
 int swap_all(t_stack **head);
