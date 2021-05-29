@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/28 14:04:11 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/05/29 09:51:38 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,12 @@ int main(int argc, char **argv)
     t_stack *stack1;
     t_stack *stack2;
     int integers[argc - 1];
-    //int test[4] = {0,9,6,4};
+    
     check_value(argc, argv, integers);
     stack1 = copy_struct(integers, argc);
     stack2 = NULL;
-    //stack2 = copy_struct(test, 4);
+    
+    ft_under_five(argc, &stack1, &stack2);
 
     print_list(stack1,stack2);
 }
