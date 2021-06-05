@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/29 14:57:16 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/04 13:34:00 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int ft_under_five(int argc, t_stack **stack1, t_stack **stack2)
 {
     int params = argc - 1;
     if (params == 1)
-        _error("There's just one param");
+        exit(0);
     if (params == 2)
         if ((*stack1)->num > (*stack1)->next->num)
             swap_all(stack1);
