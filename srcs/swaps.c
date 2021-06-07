@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/07 15:35:27 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/07 16:59:40 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ void print_list(t_stack *stack1, t_stack *stack2)
             ft_putnbr_fd(stack1->num, 1);
         ft_putstr("         ");
         if (stack2)
+        {
             ft_putnbr_fd(stack2->num, 1);
+            stack2 = stack2->next;
+        }
         ft_putchar_fd('\n', 1);
         stack1 = stack1->next;
     }
@@ -89,7 +92,7 @@ void algo_3(t_stack **stack1)
 		swap_all(stack1);
 }
 
-int ft_under_five(int argc, t_stack **stack1, t_stack **stack2)
+int ft_tree(int argc, t_stack **stack1, t_stack **stack2)
 {
     int params = argc - 1;
     if (params == 1)
@@ -103,7 +106,7 @@ int ft_under_five(int argc, t_stack **stack1, t_stack **stack2)
 		algo_4(stack1, stack2);
     if (params == 5)
 		algo_5(stack1, stack2);
-    if (params > 6)
+    if (params >= 6)
         ft_algo_gen(argc - 1, stack1, stack2);
     return (0);
 }
