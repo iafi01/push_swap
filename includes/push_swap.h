@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/30 17:45:32 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/07 15:35:23 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ void swap(int *a, int *b);
 void print_list(t_stack *stack1, t_stack *stack2);
 void delete_last_node(t_stack **head);
 void algo_3(t_stack **stack1);
-int ft_under_five(int argc, t_stack **stack1, t_stack **stack2);
+int ft_tree(int argc, t_stack **stack1, t_stack **stack2);
 
 //swaps2
 void    algo_4(t_stack **stack1, t_stack **stack2);
 void    algo_5(t_stack **stack1, t_stack **stack2);
+void    ft_algo_gen(int params, t_stack **stack1,t_stack **stack2);
 
 //commands
 int swap_all(t_stack **head);

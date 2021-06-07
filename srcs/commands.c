@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:39:44 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/05 15:33:36 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/07 15:05:27 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void rotate_all(t_stack **head)
 	last->next = first;
 	first->next = NULL;
 	*head = stack;
+	printf("rotate\n");
 }
 
 void rev_rotate_all(t_stack **head)
@@ -59,6 +60,7 @@ void rev_rotate_all(t_stack **head)
 	last->next = first;
 	penultimo->next = NULL;
 	*head = last;
+	printf("rev_rotate\n");
 }
 
 void push_on_stack(t_stack **head, t_stack **head2)
@@ -77,4 +79,5 @@ void push_on_stack(t_stack **head, t_stack **head2)
 	stack2 = tmp;
 	*head = stack1;
 	*head2 = stack2;
+	printf("push_stack\n");
 }

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/05 15:33:59 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/07 15:33:28 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,15 +100,6 @@ int *check_value(int argc, char **argv, int *integers)
     return (integers);
 }
 
-void ft_algo_gen(t_stack **stack1,t_stack **stack2, int argc)
-{
-    if (argc - 1 < 6)
-        return ;
-    //while ((*stack1)->num != 1 && (*stack1)->num != 2)
-        //rev_rotate_all(stack1);
-    push_on_stack(stack1, stack2);
-}
-
 int main(int argc, char **argv)
 {
     t_stack *stack1;
@@ -119,8 +110,6 @@ int main(int argc, char **argv)
     stack1 = copy_struct(integers, argc);
     stack2 = NULL;
     
-    ft_under_five(argc, &stack1, &stack2);
-    //ft_algo_gen(&stack1, &stack2,argc);
-    push_on_stack(&stack1, &stack2);
+    ft_tree(argc, &stack1, &stack2);
     print_list(stack1,stack2);
 }

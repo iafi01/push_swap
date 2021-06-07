@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/04 13:34:00 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/07 15:35:27 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void swap(int *a, int *b)
     tmp = *a;
     *a = *b;
     *b = tmp;
+    printf("swap\n");
 }
 
 void print_list(t_stack *stack1, t_stack *stack2)
@@ -62,26 +63,26 @@ void delete_last_node(t_stack **head)
 
 void algo_3(t_stack **stack1)
 {
-    int x;
-    int y;
-    int z;
+    t_stack *x;
+    t_stack *y;
+    t_stack *z;
 	
-    x = (*stack1)->num;
-    y = (*stack1)->next->num;
-    z = (*stack1)->next->next->num;
-	if (x < y && y < z)
+    x = *stack1;
+    y = (*stack1)->next;
+    z = (*stack1)->next->next;
+	if (x->num < y->num && y->num < z->num)
 		return ;
-	if (x > y && x > z)
+	if (x->num > y->num && x->num > z->num)
 	{
 		rotate_all(stack1);
-		if (y > z)
+		if (y->num > z->num)
 			swap_all(stack1);
 		return ;
 	}
-    if (y > x && y > z)
+    if (y->num > x->num && y->num > z->num)
 	{
 		rev_rotate_all(stack1);
-		if (x < z)
+		if (x->num < z->num)
 			swap_all(stack1);
 	}
 	else
@@ -102,5 +103,7 @@ int ft_under_five(int argc, t_stack **stack1, t_stack **stack2)
 		algo_4(stack1, stack2);
     if (params == 5)
 		algo_5(stack1, stack2);
+    if (params > 6)
+        ft_algo_gen(argc - 1, stack1, stack2);
     return (0);
 }
