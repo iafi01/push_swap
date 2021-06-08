@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/07 16:42:51 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/08 11:46:49 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,53 @@ void    algo_5(t_stack **stack1, t_stack **stack2)
     push_on_stack(stack2, stack1);
 }
 
+void ft_find_seq(t_stack **stack1)
+{
+    t_stack *tmp;
+    t_stack *mem;
+    t_stack *tmem;
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    tmem = NULL;
+    mem = NULL;
+    tmp = *stack1;
+    while (tmp->next)
+    {
+        if (tmem == NULL)
+            i = 0;
+        while (tmp->next && tmp->num == tmp->next->num - 1)
+        {
+            if (i == 0)
+                tmem = tmp;
+            i++;
+            if (tmp->next)
+                tmp = tmp->next;
+        }
+        if (j <= i)
+        {
+            mem = tmem;
+            j = i;
+            tmem = NULL;
+        }
+        if (tmp->next)
+            tmp = tmp->next;
+    }
+    printf("start :%d, successivi %d", mem->num, i); //se le cifre so diverse il printf manda in seg
+}
+
 void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
 {
     int pivot;
-    t_stack *tmp;
-    pivot = params / 2;
-    int i = 0;
-    tmp = *stack1;
-    while (i++ < params)
-    {
-        if (tmp->num < pivot)
-            push_on_stack(stack1, stack2);
-        else
-            rev_rotate_all(stack1);
-        tmp = tmp->next;
-    }
+    int i;
+
+    i = 0;
+    pivot = params;
+    ft_find_seq(stack1);
+    t_stack *stick;
+    stick = *stack2;
+    t_stack *stick1;
+    stick1 = *stack1;
 }
