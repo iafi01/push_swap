@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/08 13:37:29 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/08 15:58:42 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,16 +86,20 @@ void    algo_5(t_stack **stack1, t_stack **stack2)
     push_on_stack(stack2, stack1);
 }
 
-void ft_find_seq(t_stack **stack1)
+int *ft_find_seq(t_stack **stack1)
 {
     t_stack *tmp;
     t_stack *mem;
     t_stack *tmem;
     int i;
     int j;
+    int *seq;
+    int x;
 
+    x = 0;
     i = 0;
     j = 0;
+    seq = malloc(sizeof(int)*600);
     tmem = NULL;
     mem = NULL;
     tmp = *stack1;
@@ -120,19 +124,28 @@ void ft_find_seq(t_stack **stack1)
         if (tmp->next)
             tmp = tmp->next;
     }
-    //printf("start :%d, successivi %d", mem->num, j); //se le cifre so diverse il printf manda in seg
+    while (mem && j-- + 1)
+    {
+        seq[x++] = mem->num;
+        mem = mem->next;
+    }
+    return (seq);
 }
 
 void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
 {
     int pivot;
     int i;
+    int *seq;
 
     i = 0;
+    seq = malloc(sizeof(int)*600);
     pivot = params;
-    ft_find_seq(stack1);
+    seq = ft_find_seq(stack1);
+    while (seq[i])
+    {
+        printf("%d",seq[i++]);
+    }
     t_stack *stick;
     stick = *stack2;
-    t_stack *stick1;
-    stick1 = *stack1;
 }
