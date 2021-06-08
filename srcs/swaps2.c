@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/08 15:58:42 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/08 17:43:59 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,20 +132,42 @@ int *ft_find_seq(t_stack **stack1)
     return (seq);
 }
 
+int check_set_numbers(int num, int *list)
+{
+    int i;
+
+    i = 0;
+    while (list[i])
+    {
+        if (num == list[i++])
+            return (0);
+    }
+    return (1);
+}
+
 void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
 {
     int pivot;
     int i;
     int *seq;
+    t_stack *tmp;
 
+    tmp = *stack1;
     i = 0;
     seq = malloc(sizeof(int)*600);
     pivot = params;
     seq = ft_find_seq(stack1);
-    while (seq[i])
+    while (tmp->next && params--)
     {
-        printf("%d",seq[i++]);
+        if (check_set_numbers(tmp->num, seq) == 1)
+        {
+            tmp = tmp->next;
+            push_on_stack(stack1, stack2);
+        }
+        else
+        {
+            tmp = tmp->next;
+            rotate_all(stack1);
+        }
     }
-    t_stack *stick;
-    stick = *stack2;
 }

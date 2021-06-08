@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/08 13:39:25 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/08 17:59:17 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,19 @@ void print_list(t_stack *stack1, t_stack *stack2)
     while (stack1 || stack2)
     {
         if (stack1)
+        {
             ft_putnbr_fd(stack1->num, 1);
+            stack1 = stack1->next;
+        }
         ft_putstr("         ");
+        if (stack1 == NULL && stack2)
+            ft_putstr("  ");
         if (stack2)
         {
             ft_putnbr_fd(stack2->num, 1);
             stack2 = stack2->next;
         }
         ft_putchar_fd('\n', 1);
-        stack1 = stack1->next;
     }
 }
 
