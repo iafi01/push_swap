@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/07 15:35:23 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/08 13:37:51 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 //warnings
 void _error(char *s);
+int check_ordine(t_stack **stack);
 
 //swaps
 void swap(int *a, int *b);

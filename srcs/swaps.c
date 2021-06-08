@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/07 16:59:40 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/08 13:39:25 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void algo_3(t_stack **stack1)
     x = *stack1;
     y = (*stack1)->next;
     z = (*stack1)->next->next;
-	if (x->num < y->num && y->num < z->num)
-		return ;
 	if (x->num > y->num && x->num > z->num)
 	{
 		rotate_all(stack1);
@@ -101,11 +99,14 @@ int ft_tree(int argc, t_stack **stack1, t_stack **stack2)
         if ((*stack1)->num > (*stack1)->next->num)
             swap_all(stack1);
     if (params == 3)
-        algo_3(stack1);
+        if (!(check_ordine(stack1)))
+            algo_3(stack1);
     if (params == 4)
-		algo_4(stack1, stack2);
+        if (!(check_ordine(stack1)))
+		    algo_4(stack1, stack2);
     if (params == 5)
-		algo_5(stack1, stack2);
+        if (!(check_ordine(stack1)))
+		    algo_5(stack1, stack2);
     if (params >= 6)
         ft_algo_gen(argc - 1, stack1, stack2);
     return (0);

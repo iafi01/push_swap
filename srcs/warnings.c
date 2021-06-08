@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:53 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/30 16:59:59 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/08 13:37:31 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,18 @@ void _error(char *s)
 {
     write(1, s, ft_strlen(s));
     exit(0);
+}
+
+int check_ordine(t_stack **stack)
+{
+    t_stack *tmp;
+
+    tmp = *stack;
+    while (tmp->next)
+    {
+        if (tmp->num > tmp->next->num)
+            return (0);
+        tmp = tmp->next;
+    }
+    return (1);
 }

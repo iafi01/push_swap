@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/08 11:58:59 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/08 13:37:29 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void ft_find_seq(t_stack **stack1)
         if (tmp->next)
             tmp = tmp->next;
     }
-    printf("start :%d, successivi %d", mem->num, j); //se le cifre so diverse il printf manda in seg
+    //printf("start :%d, successivi %d", mem->num, j); //se le cifre so diverse il printf manda in seg
 }
 
 void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
