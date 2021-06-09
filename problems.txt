@@ -1,0 +1,7 @@
+swaps2.c 133 errore dello zero che viene visto come fine stringa
+
+
+
+inserire gli indici dei numeri ordinti e controllare le
+sequenze tramite la variabile indice, ma deve ritornare comunque
+l'array con gli interi nums --fatto

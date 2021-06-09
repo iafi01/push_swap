@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:53 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/08 13:37:31 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/09 14:16:08 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,35 @@ int check_ordine(t_stack **stack)
         tmp = tmp->next;
     }
     return (1);
+}
+
+void calculate_index(int params, t_stack **stack)
+{
+    int index;
+    t_stack *first;
+    t_stack *second;
+
+    first = *stack;
+    second = (*stack)->next;
+    while (first)
+    {
+        index = params;
+        while (second->next)
+        {
+            if (first->num < second->num)
+                index--;
+            second = second->next;
+        }
+        if (first->num == second->num)
+        {
+            first->index = params;
+            return;
+        } 
+        if (first->num < second->num)
+            index--;
+        first->index = index;
+        first = first->next;
+        if (first->next)
+            second = first->next;
+    }
 }

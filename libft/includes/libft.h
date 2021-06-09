@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 18:59:38 by liafigli          #+#    #+#             */
-/*   Updated: 2021/05/26 16:54:47 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/09 12:25:23 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 typedef struct  s_stack
 {
+    int index;
     int	num;
 	struct s_stack *next;
 } t_stack;

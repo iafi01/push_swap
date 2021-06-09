@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/08 17:43:59 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/09 14:53:59 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int *ft_find_seq(t_stack **stack1)
     {
         if (tmem == NULL)
             i = 0;
-        while (tmp->next && tmp->num == tmp->next->num - 1)
+        while (tmp->next && tmp->index == tmp->next->index - 1)
         {
             if (i == 0)
                 tmem = tmp;
@@ -129,6 +129,8 @@ int *ft_find_seq(t_stack **stack1)
         seq[x++] = mem->num;
         mem = mem->next;
     }
+    while (*seq)
+        printf("%d",*seq++); // lui mette lo zero dentro e lo vede come final
     return (seq);
 }
 
@@ -139,7 +141,7 @@ int check_set_numbers(int num, int *list)
     i = 0;
     while (list[i])
     {
-        if (num == list[i++])
+        if ((int)num == (int)list[i++])
             return (0);
     }
     return (1);
