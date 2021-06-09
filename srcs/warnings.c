@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:53 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/09 14:16:08 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/09 16:33:36 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ void calculate_index(int params, t_stack **stack)
         first->index = index;
         first = first->next;
         if (first->next)
-            second = first->next;
+            second = *stack;
     }
 }

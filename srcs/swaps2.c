@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/09 15:05:06 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/09 17:18:22 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int *ft_find_seq(t_stack **stack1)
     {
         if (tmem == NULL)
             i = 0;
-        while (tmp->next && tmp->num == tmp->next->num - 1)
+        while (tmp->next && tmp->index == tmp->next->index - 1)
         {
             if (i == 0)
                 tmem = tmp;
@@ -146,6 +146,20 @@ int check_set_numbers(int num, int *list)
     return (1);
 }
 
+int ft_intlen(int *n)
+{
+    int i;
+
+    i = 0;
+    while (n[i])
+    {
+        if (n[i] >= 0 && n[i] <= 9)
+            return (i);
+        i++;
+    }
+    return (0);
+}
+
 void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
 {
     int pivot;
@@ -158,8 +172,10 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
     seq = malloc(sizeof(int)*600);
     pivot = params;
     seq = ft_find_seq(stack1);
+
     while (tmp->next && params--)
     {
+        //qui controllo se mandarlo nello stack o meno (checks per quanti params ho)
         if (check_set_numbers(tmp->num, seq) == 1)
         {
             tmp = tmp->next;
