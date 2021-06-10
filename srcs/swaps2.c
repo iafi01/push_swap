@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/10 14:52:37 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/10 16:41:00 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,8 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
         while (tmp->next && i--)
         {
             //qui controllo se mandarlo nello stack o meno (checks per quanti params ho)
+            //printf("|%d %d %d %d|\n",params - i, params -i + 1, i + 1, i);
+            //deve cercari i valori in maniera ciclica invece quando rientra cerca i prossimi
             if (check_set_numbers(tmp->num, seq) == 1 && (tmp->index == 1 || tmp->index == 2 || tmp->index == params || tmp->index == params - 1)) //la parte va fatta dinamica // il controllo se esiste gia ce su tmp 
             {
                 tmp = tmp->next;
@@ -195,7 +197,6 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
             }
             else
             {
-                
                 if (tmp->index == tmp->next->index - 1)
                     swap_all(stack1);
                 tmp = tmp->next;
@@ -217,6 +218,8 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
         }
         else
             push_on_stack(stack2, stack1);
+        if ((*stack1)->index == (*stack1)->next->index + 1)
+            swap_all(stack1);
         tmp2 = *stack2;
     }
 }
