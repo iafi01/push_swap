@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/09 17:18:22 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:52:37 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,26 +165,58 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
     int pivot;
     int i;
     int *seq;
+    int *conveniente;
     t_stack *tmp;
-
+    t_stack *tmp2;
+    
     tmp = *stack1;
-    i = 0;
+    i = params;
     seq = malloc(sizeof(int)*600);
+    conveniente = malloc(sizeof(int)*600);
     pivot = params;
     seq = ft_find_seq(stack1);
-
-    while (tmp->next && params--)
+    while (check_ordine(stack1) == 0)
     {
-        //qui controllo se mandarlo nello stack o meno (checks per quanti params ho)
-        if (check_set_numbers(tmp->num, seq) == 1)
+        while (tmp->next && i--)
         {
-            tmp = tmp->next;
-            push_on_stack(stack1, stack2);
+            //qui controllo se mandarlo nello stack o meno (checks per quanti params ho)
+            if (check_set_numbers(tmp->num, seq) == 1 && (tmp->index == 1 || tmp->index == 2 || tmp->index == params || tmp->index == params - 1)) //la parte va fatta dinamica // il controllo se esiste gia ce su tmp 
+            {
+                tmp = tmp->next;
+                push_on_stack(stack1, stack2);
+
+                //add
+
+            }
+            else if (check_set_numbers(tmp->num, seq) == 0)
+            {
+                tmp = tmp->next;
+                rotate_all(stack1);
+            }
+            else
+            {
+                
+                if (tmp->index == tmp->next->index - 1)
+                    swap_all(stack1);
+                tmp = tmp->next;
+            }
+            tmp = *stack1;
         }
-        else
+    }
+    while (tmp->next)
+        tmp = tmp->next; 
+    tmp2 = *stack2;
+    while (tmp2)
+    {
+        
+        printf(" %d %d",tmp2->num,tmp->num);
+        if (tmp2->num > tmp->num)
         {
-            tmp = tmp->next;
+            push_on_stack(stack2, stack1);
             rotate_all(stack1);
         }
+        else
+            push_on_stack(stack2, stack1);
+        tmp2 = *stack2;
     }
 }

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:53 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/09 16:33:36 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/10 11:10:24 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,36 @@ void calculate_index(int params, t_stack **stack)
         if (first->next)
             second = *stack;
     }
+}
+
+int find_index(t_stack **stack, int n)
+{
+    int i;
+    t_stack *tmp;
+
+    tmp = *stack;
+    i = 0;
+    while (tmp->next)
+    {
+        if (tmp->num == n)
+            return (tmp->index);
+        tmp = tmp->next;
+    }
+    return (0);
+}
+
+int find_num(t_stack **stack, int index)
+{
+    int i;
+    t_stack *tmp;
+
+    tmp = *stack;
+    i = 0;
+    while (tmp->next)
+    {
+        if (tmp->index == index)
+            return (tmp->num);
+        tmp = tmp->next;
+    }
+    return (0);
 }

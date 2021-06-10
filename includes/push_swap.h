@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/09 12:27:58 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/10 11:10:54 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 void _error(char *s);
 int check_ordine(t_stack **stack);
 void calculate_index(int params, t_stack **stack);
+int find_index(t_stack **stack, int n);
+int find_num(t_stack **stack, int index);
 
 //swaps
 void swap(int *a, int *b);
