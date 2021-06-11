@@ -16,3 +16,5 @@ swaps2.c 133 errore dello zero che viene visto come fine stringa
 (uso un array di char che converto ogni volta, cosi lo '0' sará diverso da \0)
 
 Aggiungere all'algo_gen il calcolo dell'economicitá del numero piú di distante da pushare
+
+fargli ripushare in ordine i numeri

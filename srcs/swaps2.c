@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/10 16:41:00 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/11 11:11:45 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,7 +177,7 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
     seq = ft_find_seq(stack1);
     while (check_ordine(stack1) == 0)
     {
-        while (tmp->next && i--)
+        while (tmp->next && i-- && check_ordine(stack1) == 0)
         {
             //qui controllo se mandarlo nello stack o meno (checks per quanti params ho)
             //printf("|%d %d %d %d|\n",params - i, params -i + 1, i + 1, i);
@@ -186,9 +186,6 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
             {
                 tmp = tmp->next;
                 push_on_stack(stack1, stack2);
-
-                //add
-
             }
             else if (check_set_numbers(tmp->num, seq) == 0)
             {
@@ -201,8 +198,8 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
                     swap_all(stack1);
                 tmp = tmp->next;
             }
-            tmp = *stack1;
         }
+        tmp = *stack1;
     }
     while (tmp->next)
         tmp = tmp->next; 
