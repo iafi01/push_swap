@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/09 13:45:57 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:26:27 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_stack *create_new_node(void)
     return (first);
 }
 
-t_stack    *copy_struct(int *valori, int argc)
+t_stack    *copy_struct(int *valori, int len)
 {
     t_stack *stack1;
     t_stack *ret;
@@ -31,7 +31,7 @@ t_stack    *copy_struct(int *valori, int argc)
     stack1 = create_new_node();
     ret = stack1;
     i = 1;
-    while (i < argc)
+    while (i < len)
     {
         stack1->num = valori[i++];
         stack1->next = create_new_node();
@@ -73,16 +73,16 @@ int    ft_atoi_swap(const char *str)
     return (sum * sign);
 }
 
-int *check_value(int argc, char **argv, int *integers)
+int *check_value(int nlen, char **argv, int *integers)
 {
 	int    	i;
     int 	j;
     int 	n;
-    int len;
+    int     len;
     
     len = 0;
     i = 1;
-    while (i < argc)
+    while (i < nlen)
     {
         j = 0;
         len = i;
@@ -100,17 +100,39 @@ int *check_value(int argc, char **argv, int *integers)
     return (integers);
 }
 
+int count_number(char **argv)
+{
+    int i = 1;
+    int ret = 0;
+    int j = 0;
+    
+    while (argv[i])
+    {
+        j = 0;
+        while (argv[i][j])
+        {
+            if (argv[i][j] == ' ')
+            {
+                ret++;
+            }
+            j++;
+        } 
+        i++;
+    }
+    return (ret + i - 1);
+}
+
 int main(int argc, char **argv)
 {
     t_stack *stack1;
     t_stack *stack2;
     int integers[argc - 1];
-    
+
     check_value(argc, argv, integers);
     stack1 = copy_struct(integers, argc);
     stack2 = NULL;
     
     calculate_index(argc - 1, &stack1);
-    ft_tree(argc, &stack1, &stack2);
+    ft_tree(argc - 1, &stack1, &stack2);
     print_list(stack1,stack2);
 }

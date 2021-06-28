@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/11 11:11:45 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 14:03:53 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ void    algo_4(t_stack **stack1, t_stack **stack2)
     d = (*stack1)->next->next->next;
     if (a->num < b->num && a->num < c->num && a->num < d->num)
         push_on_stack(stack1, stack2);
-    if (b->num < a->num && b->num < c->num && b->num < d->num)
+    else if (b->num < a->num && b->num < c->num && b->num < d->num)
     {
         swap_all(stack1);
         push_on_stack(stack1, stack2);
     }
-    if (c->num < a->num && c->num < b->num && c->num < d->num)
+    else if (c->num < a->num && c->num < b->num && c->num < d->num)
     {
         rev_rotate_all(stack1);
         rev_rotate_all(stack1);
         push_on_stack(stack1, stack2);
     }
-    if (d->num < a->num && d->num < b->num && d->num < c->num)
+    else if (d->num < a->num && d->num < b->num && d->num < c->num)
     {
         rev_rotate_all(stack1);
         push_on_stack(stack1, stack2);
@@ -59,25 +59,25 @@ void    algo_5(t_stack **stack1, t_stack **stack2)
     if ((*stack1)->num < b && (*stack1)->num < c && \
      (*stack1)->num < d && (*stack1)->num < e)
         push_on_stack(stack1, stack2);
-    if (b < (*stack1)->num && b < c && b < d && b < e)
+    else if (b < (*stack1)->num && b < c && b < d && b < e)
     {
         swap_all(stack1);
         push_on_stack(stack1, stack2);
     }
-    if (c < (*stack1)->num && c < b && c < d && c < e)
+    else if (c < (*stack1)->num && c < b && c < d && c < e)
     {
         rev_rotate_all(stack1);
         rev_rotate_all(stack1);
         rev_rotate_all(stack1);
         push_on_stack(stack1, stack2);
     }
-    if (d < (*stack1)->num && d < b && d < c && d < e)
+    else if (d < (*stack1)->num && d < b && d < c && d < e)
     {
         rev_rotate_all(stack1);
         rev_rotate_all(stack1);
         push_on_stack(stack1, stack2);
     }
-    if (e < (*stack1)->num && e < b && e < c && e < d)
+    else if (e < (*stack1)->num && e < b && e < c && e < d)
     {
         rev_rotate_all(stack1);
         push_on_stack(stack1, stack2);

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/09 11:30:18 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:36:05 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void delete_last_node(t_stack **head)
 
 void algo_3(t_stack **stack1)
 {
+    printf("ue");
     t_stack *x;
     t_stack *y;
     t_stack *z;
@@ -90,13 +91,12 @@ void algo_3(t_stack **stack1)
 		if (x->num < z->num)
 			swap_all(stack1);
 	}
-	else
+	else if (!(x < y && y < z))
 		swap_all(stack1);
 }
 
-int ft_tree(int argc, t_stack **stack1, t_stack **stack2)
+int ft_tree(int params, t_stack **stack1, t_stack **stack2)
 {
-    int params = argc - 1;
     if (check_ordine(stack1))
         return (0);
     else if (params == 1)
@@ -110,6 +110,6 @@ int ft_tree(int argc, t_stack **stack1, t_stack **stack2)
     else if (params == 5)
 		algo_5(stack1, stack2);
     else if (params >= 6)
-        ft_algo_gen(argc - 1, stack1, stack2);
+        ft_algo_gen(params, stack1, stack2);
     return (0);
 }
