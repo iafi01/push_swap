@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/28 16:26:27 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:43:02 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,8 @@ int main(int argc, char **argv)
     t_stack *stack2;
     int integers[argc - 1];
 
+    if (argc - 1 == 1)
+        return (0);
     check_value(argc, argv, integers);
     stack1 = copy_struct(integers, argc);
     stack2 = NULL;
