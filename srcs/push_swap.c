@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/28 16:43:02 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:45:56 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,15 +126,18 @@ int main(int argc, char **argv)
 {
     t_stack *stack1;
     t_stack *stack2;
-    int integers[argc - 1];
+    int *integers;
+    int len;
 
     if (argc - 1 == 1)
         return (0);
-    check_value(argc, argv, integers);
-    stack1 = copy_struct(integers, argc);
+    len = count_number(argv);
+    integers = malloc(sizeof(int) * len);
+    check_value(len + 1, argv, integers);
+    stack1 = copy_struct(integers, len + 1);
     stack2 = NULL;
     
-    calculate_index(argc - 1, &stack1);
-    ft_tree(argc - 1, &stack1, &stack2);
+    calculate_index(len, &stack1);
+    ft_tree(len, &stack1, &stack2);
     print_list(stack1,stack2);
 }
