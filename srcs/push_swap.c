@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/28 18:48:33 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 19:00:59 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,20 +128,23 @@ char **argv_unico(char **argv_copy, int len)
     int i;
     int j;
     int k;
+    int m;
 
-    argv = malloc(sizeof(char*) * len);
+    argv = malloc(sizeof(char*) * len + 1);
     i = 0;
     j = 0;
     k = 0;
+    m = 0;
     while (argv[i++])
     {
         while (argv[j])
         {
             if (argv_copy[i][j] != ' ')
-                argv[k] = &argv_copy[i][j];
+                argv[k][m] = argv_copy[i][j];
             else
                 k++;
             j++;
+            m++;
         }
     }
     return (argv);
@@ -160,10 +163,13 @@ int main(int argc, char **argv)
     integers = malloc(sizeof(int) * len);
     if (len != argc - 1)
         argv = argv_unico(argv, len); //ora sovrascrivo tutti gli argv come un array unico
-    check_value(len + 1, argv, integers);
+    int i = 0;
+    while (argv[i++])
+        printf("%s", argv[i]);
+    /*check_value(len + 1, argv, integers);*/
     stack1 = copy_struct(integers, len + 1);
     stack2 = NULL;
-    calculate_index(len, &stack1);
+    /*calculate_index(len, &stack1);
     ft_tree(len, &stack1, &stack2);
-    print_list(stack1,stack2);
+    print_list(stack1,stack2);*/
 }

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/28 16:41:29 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:47:44 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void delete_last_node(t_stack **head)
 
 void algo_3(t_stack **stack1)
 {
-    printf("ue");
     t_stack *x;
     t_stack *y;
     t_stack *z;

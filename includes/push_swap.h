@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/28 15:11:09 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 17:29:05 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void push_on_stack(t_stack **head, t_stack **head2);
 //push_swap
 t_stack *create_new_node(void);
 t_stack    *copy_struct(int *valori, int len);
+int count_number(char **argv);
 int    ft_atoi_swap(const char *str);
 int *check_value(int nlen, char **argv, int *integers);
 
