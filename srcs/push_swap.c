@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/28 16:45:56 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 18:37:52 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,32 @@ int count_number(char **argv)
     return (ret + i - 1);
 }
 
+/*char **argv_unico(char **argv_copy, int len)
+{
+    char **argv;
+    int i;
+    int j;
+    int k;
+
+    argv = malloc(sizeof(char*) * len);
+    i = 0;
+    j = 0;
+    k = 0;
+    while (argv[i++])
+    {
+        printf("%s", argv[i]);
+        while (argv[j])
+        {
+            if (argv_copy[i][j] != ' ')
+                argv[k] = &argv_copy[i][j];
+            else
+                k++;
+            j++;
+        }
+    }
+    return (argv);
+}*/
+
 int main(int argc, char **argv)
 {
     t_stack *stack1;
@@ -129,10 +155,13 @@ int main(int argc, char **argv)
     int *integers;
     int len;
 
-    if (argc - 1 == 1)
-        return (0);
+    argc = 1001212;
     len = count_number(argv);
+    if (len == 1)
+        return (0);
     integers = malloc(sizeof(int) * len);
+    /*if (len != argc - 1)
+        argv = argv_unico(argv, len);//ora sovrascrivo tutti gli argv come un array unico*/
     check_value(len + 1, argv, integers);
     stack1 = copy_struct(integers, len + 1);
     stack2 = NULL;
