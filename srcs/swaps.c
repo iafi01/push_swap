@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/28 16:36:05 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:41:29 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void algo_3(t_stack **stack1)
 		if (x->num < z->num)
 			swap_all(stack1);
 	}
-	else if (!(x < y && y < z))
+	else if (!(check_ordine(stack1)))
 		swap_all(stack1);
 }
 
