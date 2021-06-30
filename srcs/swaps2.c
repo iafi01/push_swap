@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/30 16:46:27 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/06/30 18:48:52 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,42 @@ int ft_intlen(int *n)
     return (0);
 }
 
+int check_pos_index(t_stack **stack, int num)
+{
+    t_stack **tmp;
+    int i;
+
+    i = 1;
+    tmp = stack;
+    while ((*tmp)->next)
+    {
+        if ((*tmp)->index == num)
+            return (i);
+        i++;
+    }
+    return (i);
+}
+
+int manage_rotation(t_stack **stack1, int len, int i)
+{
+    int pos1; 
+    int pos2;
+    int pos3;
+    int pos4;
+    
+    pos1 = check_pos_index(stack1, i);
+    pos2 = check_pos_index(stack1, i+1);
+    pos3 = check_pos_index(stack1, len -1);
+    pos4 = check_pos_index(stack1, len);
+    if (pos1 > pos2)
+        pos1 = pos2;
+    if (pos3 < pos4)
+        pos3 = pos4;
+    if (len - pos3 + 1 <= pos1)
+        return ((len - pos3) * -1);
+    return (pos1);
+}
+
 void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
 {
     int pivot;
@@ -181,6 +217,7 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
         printf("%d", *seq++);
     while (check_ordine(stack1) == 0)
     {
+        //printf("%d",manage_rotation(stack1, len, i));
         while (tmp->next && check_ordine(stack1) == 0)
         {
             if (len == tmp->index && check_set_numbers(tmp->num, seq) == 1)
