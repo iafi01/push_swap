@@ -11,3 +11,5 @@ ________________________________________________________________________________
 
 Nel secondo ciclo while di algo gen, una volta che tutti e 4 gli eco_nums sono offstack
 perche o pushati o in sequenza, len e i devono cambiare
+
+./push_swap $(./random 500) | wc -l

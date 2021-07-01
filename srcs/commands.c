@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:39:44 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/07 16:55:29 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/01 16:55:26 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ void push_on_stack(t_stack **head, t_stack **head2)
 	stack2 = tmp;
 	*head = stack1;
 	*head2 = stack2;
-	printf("push_stack\n");
+	printf("push_stack%d\n",tmp->num);
 }

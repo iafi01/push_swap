@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/01 15:57:28 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/01 17:08:13 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,19 +179,18 @@ int check_pos_index(t_stack **stack, int index)
 
 int manage_rotation(int p1,int p2,int p3,int p4, int len)
 { //stare attento ai -1
-    printf("i %d i+1 %d len-1 %d len %d ",p1,p2,p3,p4);
-    if (p1 > p2 || p1 == -1)
+    printf("i%d i.%d len.%d len%d ",p1,p2,p3,p4);
+    if (p1 == -1 || p1 > p2)
         p1 = p2;
-    if (p3 < p4 || p4 == -1)
+    if (p4 == -1 || p3 < p4)
         p4 = p3;
-    if (len - p4 + 1 < p1 - 1)
+    if (p1 == -1 || len - p4 <= p1 - 1)
         return ((len - p4 + 1) * -1);
     return (p1-1);
 }
 
 void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
 {
-    int pivot;
     int i;
     int len;
     int *seq;
@@ -209,10 +208,10 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
     len = params;
     seq = malloc(sizeof(int)*600);
     conveniente = malloc(sizeof(int)*600);
-    pivot = params;
     seq = ft_find_seq(stack1);
-    while (*seq)
-        printf("%d", *seq++);
+    int j = 0;
+    while (seq[j])
+        printf("%d", seq[j++]);
     while (check_ordine(stack1) == 0)
     {
         while (check_ordine(stack1) == 0)
@@ -231,12 +230,13 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
             if (check_set_numbers(find_num(stack1, len), seq) == 1)
                 p4 = check_pos_index(stack1, len);
             if (!(p1 == -1 && p2 == -1 && p3 == -1 && p4 == -1))
-                manage = manage_rotation(p1,p2,p3,p4,len);
+                manage = manage_rotation(p1,p2,p3,p4,len-1);
             else
             {
                 len--;
                 i++;
             }
+            printf("MANAGE:%d",manage);
             if(manage > 0)
             {
                 rotate_all_n(stack1, manage);
