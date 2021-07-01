@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/30 18:20:46 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/01 14:22:01 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void rev_rotate_all(t_stack **head);
 void push_on_stack(t_stack **head, t_stack **head2);
 
 //commands2
-int swap_all_n(t_stack **head, int i);
+void swap_all_n(t_stack **head, int i);
 void rotate_all_n(t_stack **head, int i);
 void rev_rotate_all_n(t_stack **head, int i);
 void push_on_stack_n(t_stack **head, t_stack **head2, int i);

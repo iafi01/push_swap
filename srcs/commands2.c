@@ -6,13 +6,13 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:39:44 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/30 18:20:00 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/01 14:21:56 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int swap_all_n(t_stack **head, int i)
+void swap_all_n(t_stack **head, int i)
 {
     while (i--)
         swap_all(head);

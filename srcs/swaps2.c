@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/30 18:48:52 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/01 15:57:28 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ int ft_intlen(int *n)
     return (0);
 }
 
-int check_pos_index(t_stack **stack, int num)
+int check_pos_index(t_stack **stack, int index)
 {
     t_stack **tmp;
     int i;
@@ -169,31 +169,24 @@ int check_pos_index(t_stack **stack, int num)
     tmp = stack;
     while ((*tmp)->next)
     {
-        if ((*tmp)->index == num)
+        if ((*tmp)->index == index)
             return (i);
         i++;
+        tmp = &(*tmp)->next;
     }
     return (i);
 }
 
-int manage_rotation(t_stack **stack1, int len, int i)
-{
-    int pos1; 
-    int pos2;
-    int pos3;
-    int pos4;
-    
-    pos1 = check_pos_index(stack1, i);
-    pos2 = check_pos_index(stack1, i+1);
-    pos3 = check_pos_index(stack1, len -1);
-    pos4 = check_pos_index(stack1, len);
-    if (pos1 > pos2)
-        pos1 = pos2;
-    if (pos3 < pos4)
-        pos3 = pos4;
-    if (len - pos3 + 1 <= pos1)
-        return ((len - pos3) * -1);
-    return (pos1);
+int manage_rotation(int p1,int p2,int p3,int p4, int len)
+{ //stare attento ai -1
+    printf("i %d i+1 %d len-1 %d len %d ",p1,p2,p3,p4);
+    if (p1 > p2 || p1 == -1)
+        p1 = p2;
+    if (p3 < p4 || p4 == -1)
+        p4 = p3;
+    if (len - p4 + 1 < p1 - 1)
+        return ((len - p4 + 1) * -1);
+    return (p1-1);
 }
 
 void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
@@ -205,6 +198,11 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
     int *conveniente;
     t_stack *tmp;
     t_stack *tmp2;
+    int p1;
+    int p2;
+    int p3;
+    int p4;
+    int manage;
     
     i = 1;
     tmp = *stack1;
@@ -217,26 +215,37 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
         printf("%d", *seq++);
     while (check_ordine(stack1) == 0)
     {
-        //printf("%d",manage_rotation(stack1, len, i));
-        while (tmp->next && check_ordine(stack1) == 0)
+        while (check_ordine(stack1) == 0)
         {
-            if (len == tmp->index && check_set_numbers(tmp->num, seq) == 1)
-            {
-                tmp = tmp->next;
-                push_on_stack(stack1, stack2);
-                len--;
-            }
-            else if (i == tmp->index && check_set_numbers(tmp->num, seq) == 1)
-            {
-                tmp = tmp->next;
-                push_on_stack(stack1, stack2);
-                i++;
-            }
+            p1 = -1;
+            p2 = -1;
+            p3 = -1;
+            p4 = -1;
+            manage = 0;
+            if (check_set_numbers(find_num(stack1, i), seq) == 1)
+                p1 = check_pos_index(stack1, i);
+            if (check_set_numbers(find_num(stack1, i+1), seq) == 1)
+                p2 = check_pos_index(stack1, i+1);
+            if (check_set_numbers(find_num(stack1, len-1), seq) == 1)
+                p3 = check_pos_index(stack1, len-1);
+            if (check_set_numbers(find_num(stack1, len), seq) == 1)
+                p4 = check_pos_index(stack1, len);
+            if (!(p1 == -1 && p2 == -1 && p3 == -1 && p4 == -1))
+                manage = manage_rotation(p1,p2,p3,p4,len);
             else
             {
-                tmp = tmp->next;
-                rotate_all(stack1);
+                len--;
+                i++;
             }
+            if(manage > 0)
+            {
+                rotate_all_n(stack1, manage);
+            } 
+            else if (manage < 0)
+            {
+                rev_rotate_all_n(stack1, manage*-1);
+            }
+            push_on_stack(stack1, stack2);
         }
         tmp = *stack1;
     }
@@ -245,7 +254,7 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
     tmp2 = *stack2;
     while (tmp2)
     {
-        printf(" %d %d",tmp2->num,tmp->num);
+        //printf(" %d %d",tmp2->num,tmp->num);
         if (tmp2->num > tmp->num)
         {
             push_on_stack(stack2, stack1);

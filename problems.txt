@@ -2,19 +2,12 @@ ________________________________________________________________________________
                                           RISOLTI
 _________________________________________________________________________________________
 
-inserire gli indici dei numeri ordinti e controllare le
-sequenze tramite la variabile indice, ma deve ritornare comunque
-l'array con gli interi nums --fatto
-
+Indini p1 p2 ec... ora dovrebbero essere controllati bene se nulli, forse
 
 
 _________________________________________________________________________________________
                                         DA RISOLVE
 _________________________________________________________________________________________
-swaps2.c 133 errore dello zero che viene visto come fine stringa
-(possibili soluzioni, usare un long int* e spostare le posizioni di uno quindi 0 sará -1, -1 sará -2)
-(uso un array di char che converto ogni volta, cosi lo '0' sará diverso da \0)
 
-Aggiungere all'algo_gen il calcolo dell'economicitá del numero piú di distante da pushare
-
-fargli ripushare in ordine i numeri
+Nel secondo ciclo while di algo gen, una volta che tutti e 4 gli eco_nums sono offstack
+perche o pushati o in sequenza, len e i devono cambiare
