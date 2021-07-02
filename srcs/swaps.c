@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/06/28 18:47:44 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:07:04 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void print_list(t_stack *stack1, t_stack *stack2)
     }
 }
 
-void delete_last_node(t_stack **head)
+void delete_last_stack(t_stack **head)
 {
    t_stack *toDelLast, *preNode;
     if(*head == NULL)
@@ -79,19 +79,19 @@ void algo_3(t_stack **stack1)
     z = (*stack1)->next->next;
 	if (x->num > y->num && x->num > z->num)
 	{
-		rotate_all(stack1);
+		rotate_all(stack1, 1);
 		if (y->num > z->num)
-			swap_all(stack1);
+			swap_all(stack1, 1);
 		return ;
 	}
     if (y->num > x->num && y->num > z->num)
 	{
-		rev_rotate_all(stack1);
+		rev_rotate_all(stack1, 1);
 		if (x->num < z->num)
-			swap_all(stack1);
+			swap_all(stack1, 1);
 	}
 	else if (!(check_ordine(stack1)))
-		swap_all(stack1);
+		swap_all(stack1, 1);
 }
 
 int ft_tree(int params, t_stack **stack1, t_stack **stack2)
@@ -101,14 +101,22 @@ int ft_tree(int params, t_stack **stack1, t_stack **stack2)
     else if (params == 1)
         exit(0);
     else if (params == 2)
-            swap_all(stack1);
+            swap_all(stack1, 1);
     else if (params == 3)
         algo_3(stack1);
     else if (params == 4)
 		algo_4(stack1, stack2);
     else if (params == 5)
 		algo_5(stack1, stack2);
-    else if (params >= 6)
-        ft_algo_gen(params, stack1, stack2);
+    else if (params >= 6 && params <= 20)
+        sort_twenty(stack1, stack2);
+    else if (params > 20 && params <= 50)
+        sort_fifty(stack1, stack2);
+    else if (params > 50 && params <= 100)
+        sort_hundred(stack1, stack2);
+    else if (params > 100 && params <= 250)
+        sort_twofifty(stack1, stack2);
+    else if (params > 100 && params <= 500)
+        sort_fivehundred(stack1, stack2);
     return (0);
 }

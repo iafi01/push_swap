@@ -6,23 +6,27 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:39:44 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/02 14:33:01 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:44:40 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 //sa sb
-int swap_all(t_stack **head)
+int swap_all(t_stack **head, int i)
 {
     t_stack *stack;
 
     stack = *head;
     if (stack && stack->next)
         swap(&stack->num, &stack->next->num);
+	if (i == 1)
+		write(1,"sa\n",3);
+	if (i == 2)
+		write(1,"sb\n",3);
     return (0);
 }
 
-void rotate_all(t_stack **head)
+void rotate_all(t_stack **head, int i)
 {
     t_stack	*first;
 	t_stack	*last;
@@ -39,10 +43,13 @@ void rotate_all(t_stack **head)
 	last->next = first;
 	first->next = NULL;
 	*head = stack;
-	printf("rotate\n");
+	if (i == 1)
+		write(1,"ra\n",3);
+	if (i == 2)
+		write(1,"rb\n",3);
 }
 
-void rev_rotate_all(t_stack **head)
+void rev_rotate_all(t_stack **head, int i)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -60,17 +67,23 @@ void rev_rotate_all(t_stack **head)
 	last->next = first;
 	penultimo->next = NULL;
 	*head = last;
-	printf("rev_rotate\n");
+	if (i == 1)
+		write(1,"rra\n",4);
+	if (i == 2)
+		write(1,"rrb\n",4);
 }
 
-void push_on_stack(t_stack **head, t_stack **head2)
+void push_on_stack(t_stack **head, t_stack **head2, int i)
 {
 	t_stack *stack1;
 	t_stack *stack2;
 	t_stack *tmp;
 
 	tmp = *head;
-	stack1 = (*head)->next;
+	if ((*head)->next)
+		stack1 = (*head)->next;
+	else
+		stack1 = NULL;
 	stack2 = *head2;
 
 	tmp->next = NULL;
@@ -79,6 +92,8 @@ void push_on_stack(t_stack **head, t_stack **head2)
 	stack2 = tmp;
 	*head = stack1;
 	*head2 = stack2;
-	//printf("push_stack%d\n",tmp->num);
-	//print_list(*head,*head2);
+	if (i == 1)
+		write(1,"pa\n",3);
+	if (i == 2)
+		write(1,"pb\n",3);
 }
