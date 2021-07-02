@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/01 17:08:13 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/02 14:33:44 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ int check_pos_index(t_stack **stack, int index)
 
 int manage_rotation(int p1,int p2,int p3,int p4, int len)
 { //stare attento ai -1
-    printf("i%d i.%d len.%d len%d ",p1,p2,p3,p4);
+    //printf("i%d i.%d len.%d len%d ",p1,p2,p3,p4);
     if (p1 == -1 || p1 > p2)
         p1 = p2;
     if (p4 == -1 || p3 < p4)
@@ -202,8 +202,12 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
     int p3;
     int p4;
     int manage;
-    
+    int start;
+    int end;
+
+    end = 0;
     i = 1;
+    start = 0;
     tmp = *stack1;
     len = params;
     seq = malloc(sizeof(int)*600);
@@ -214,6 +218,10 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
         printf("%d", seq[j++]);
     while (check_ordine(stack1) == 0)
     {
+        if (check_set_numbers(find_num(stack1, i), seq) == 1)
+            start = 1;
+        if (check_set_numbers(find_num(stack1, len), seq) == 1)
+            end = 1;
         while (check_ordine(stack1) == 0)
         {
             p1 = -1;
@@ -221,22 +229,24 @@ void ft_algo_gen(int params, t_stack **stack1,t_stack **stack2)
             p3 = -1;
             p4 = -1;
             manage = 0;
-            if (check_set_numbers(find_num(stack1, i), seq) == 1)
+            if (start == 1 && check_set_numbers(find_num(stack1, i), seq) == 1)
                 p1 = check_pos_index(stack1, i);
-            if (check_set_numbers(find_num(stack1, i+1), seq) == 1)
+            if (start == 1 && check_set_numbers(find_num(stack1, i+1), seq) == 1)
                 p2 = check_pos_index(stack1, i+1);
-            if (check_set_numbers(find_num(stack1, len-1), seq) == 1)
+            if (end == 1 && check_set_numbers(find_num(stack1, len-1), seq) == 1)
                 p3 = check_pos_index(stack1, len-1);
-            if (check_set_numbers(find_num(stack1, len), seq) == 1)
+            if (end == 1 && check_set_numbers(find_num(stack1, len), seq) == 1)
                 p4 = check_pos_index(stack1, len);
             if (!(p1 == -1 && p2 == -1 && p3 == -1 && p4 == -1))
                 manage = manage_rotation(p1,p2,p3,p4,len-1);
             else
             {
-                len--;
-                i++;
+                if (end == 1)
+                    len--;
+                if (start == 1)
+                    i++;
             }
-            printf("MANAGE:%d",manage);
+            //printf("MANAGE:%d",manage);
             if(manage > 0)
             {
                 rotate_all_n(stack1, manage);
