@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/02 17:36:14 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/03 15:30:10 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int    ft_atoi_swap(const char *str)
     sum = 0;
     sign = 1;
     i = 0;
-    if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+    if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' 
 			|| str[i] == '\f' || str[i] == '\r' || str[i] == 32)
 			i++;
     if (str[i] == '+' || str[i] == '-')
@@ -122,36 +122,23 @@ int count_number(char **argv)
     return (ret + i - 1);
 }
 
-char **argv_unico(char **argv_copy, int len)
+char **argv_unico(char **argv, int len, int argc)
 {
-    char **argv;
-    int i;
-    int j;
-    int k;
-    int m;
-
-    argv = malloc(sizeof(char*) * len + 1);
-    i = 0;
-    j = 0;
-    k = 0;
-    m = 0;
-    while (argv_copy[i++])
+    char **s;
+    char **f;
+    int j = 0;
+    int i = 1;
+	int k = 0;
+    f = calloc(len,sizeof(char*));
+    *f = calloc(len,sizeof(char));
+    while (i < argc)
     {
-        j = 0;
-        while (argv_copy[j])
-        {
-            if (argv_copy[i][j] != ' ')
-                argv[k][m] = argv_copy[i][j];
-            else
-            {
-                k++;
-                m = -1;
-            }
-            j++;
-            m++;
-        }
+        s = ft_split(argv[i++], ' ');
+		k = 0;
+		while (s[k])
+        	f[j++] = s[k++];
     }
-    return (argv);
+    return (f);
 }
 
 int main(int argc, char **argv)
@@ -166,7 +153,7 @@ int main(int argc, char **argv)
         return (0);
     integers = malloc(sizeof(int) * len);
     if (len != argc - 1)
-        argv = argv_unico(argv, len); //ora sovrascrivo tutti gli argv come un array unico*/
+        argv = argv_unico(argv, len, argc);
     check_value(len + 1, argv, integers);
     stack1 = copy_struct(integers, len + 1);
     stack2 = NULL;

@@ -1,7 +1,9 @@
+// Online C compiler to run C program online
 #include <stdio.h>
-#include <stdlib.h>
+// Online C compiler to run C program online
 #include <strings.h>
-
+// Online C compiler to run C program online
+#include <stdlib.h>
 static int	count_words(const char *str, char c)
 {
 	int	i;
@@ -57,11 +59,11 @@ char	**ft_split(char const *s, char c)
 	split = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!split)
 		return (0);
-	while (i <= ft_strlen(s))
+	while (i <= strlen(s))
 	{
 		if (s[i] != c && index < 0)
 			index = i;
-		else if ((((s[i] == c || i == ft_strlen(s)) && index >= 0)))
+		else if ((((s[i] == c || i == strlen(s)) && index >= 0)))
 		{
 			split[j++] = word_dup(s, index, i);
 			index = -1;
@@ -71,22 +73,29 @@ char	**ft_split(char const *s, char c)
 	return (ft_close(split, j));
 }
 
-char **argv_unico(char **argv_copy, int n_num, int len)
+char **nuovo_argv(int argc, char **argv)
 {
-    int i = 0;
-    char **ret;
-
-    while (i++ < len)
+	char **s;
+    char **f;
+    int j = 0;
+    int i = 1;
+	int k = 0;
+    f = calloc(10,sizeof(char*));
+    *f = calloc(10,sizeof(char));
+    while (i < argc)
     {
-        ret = ft_split(argv_copy[i], ' ');
+        s = ft_split(argv[i++], ' ');
+		k = 0;
+		while (s[k])
+        	f[j++] = s[k++];
     }
+    return (f);
 }
 
-int main(int argc, char **argv)
-{
-    int i = 0;
-    argv = argv_unico(&argv[i], 4, argc - 1);
-    while (i < 4)
-        printf("%s", argv[i++]);
-    return (0);
+int main(int argc, char **argv) {
+	int i = -1;
+	char **s;
+	s = nuovo_argv(argc, argv);
+	while (i++ < 3)
+    	printf("%s|",s[i]);
 }
