@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/04 15:36:12 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/04 16:05:15 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ int	*check_value(int nlen, char **argv, int *integers)
 				_error("Errore Duplicati");
 			len--;
 		}
-		integers[i++ - 1] = n;
+		integers[i - 1] = n;
+		i++;
 	}
 	return (integers);
 }

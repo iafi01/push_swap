@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/03 15:50:16 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/04 15:01:32 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	swap(int *a, int *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
-	printf("swap\n");
 }
 
 void	print_list(t_stack *stack1, t_stack *stack2)

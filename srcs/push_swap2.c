@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/03 16:32:12 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/04 16:04:32 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_stack	*copy_struct(int *valori, int len)
 
 	stack1 = create_new_node();
 	ret = stack1;
-	i = 1;
-	while (i < len)
+	i = 0;
+	while (i < len - 1)
 	{
 		stack1->num = valori[i++];
 		stack1->next = create_new_node();
