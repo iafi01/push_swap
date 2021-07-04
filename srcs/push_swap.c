@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/04 14:00:09 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/04 15:36:12 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	*check_value(int nlen, char **argv, int *integers)
 	while (i < nlen)
 	{
 		j = 0;
-		len = i;
+		len = i - 1;
 		if (ft_atoi_swap(argv[i]) == -1 && ft_strcmp(argv[i], "-1") == 0)
 			_error("Errore Min/Max/Float");
 		n = ft_atoi_swap(argv[i]);
@@ -63,7 +63,7 @@ int	*check_value(int nlen, char **argv, int *integers)
 				_error("Errore Duplicati");
 			len--;
 		}
-		integers[i++] = n;
+		integers[i++ - 1] = n;
 	}
 	return (integers);
 }
