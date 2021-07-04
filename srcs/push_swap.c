@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/04 13:23:39 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/04 14:00:09 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,12 @@ char	**argv_unico(char **argv, int len, int argc)
 	int		i;
 	int		k;
 
-	j = 0;
+	j = 1;
 	i = 1;
 	k = 0;
 	f = calloc(len, sizeof(char *));
 	*f = calloc(len, sizeof(char));
+	f[0] = argv[0];
 	while (i < argc)
 	{
 		s = ft_split(argv[i++], ' ');
