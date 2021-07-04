@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/03 16:39:52 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/04 13:21:06 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 //warnings
 void	_error(char *s);
+void	init_algo_5(t_stack **stack1, int *k);
+
+//utils
 int		check_ordine(t_stack **stack);
 void	calculate_index(int params, t_stack **stack);
 int		find_index(t_stack **stack, int n);
@@ -57,6 +60,7 @@ int		count_number(char **argv);
 int		ft_atoi_swap(const char *str);
 int		*check_value(int nlen, char **argv, int *integers);
 
+//algos20+
 int		stack_len(t_stack **Stack);
 void	pushback_all(t_stack **StackA, t_stack **StackB);
 void	ra_rra_pos(t_stack **a, int pos);

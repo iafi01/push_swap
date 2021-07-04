@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/03 16:32:07 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/04 13:23:39 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ int	ft_atoi_swap(const char *str)
 	while (str[i])
 	{
 		if (str[i] >= '0' && str[i] <= '9')
-		{
 			sum *= 10;
-			sum += str[i] - '0';
-			i++;
-		}
+		if (str[i] >= '0' && str[i] <= '9')
+			sum += str[i++] - '0';
 		else
 			return (-1);
 	}
@@ -134,7 +132,6 @@ int	main(int argc, char **argv)
 	check_value(len + 1, argv, integers);
 	stack1 = copy_struct(integers, len + 1);
 	stack2 = NULL;
-	calculate_index(len, &stack1);
+	set_index(&stack1);
 	ft_tree(len, &stack1, &stack2);
-	print_list(stack1, stack2);
 }

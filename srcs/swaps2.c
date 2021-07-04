@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 11:35:12 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/03 16:30:10 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/04 13:23:03 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,25 @@
 
 void	algo_4(t_stack **stack1, t_stack **stack2)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_stack	*c;
-	t_stack	*d;
+	int	k[4];
 
-	a = (*stack1);
-	b = (*stack1)->next;
-	c = (*stack1)->next->next;
-	d = (*stack1)->next->next->next;
-	if (a->num < b->num && a->num < c->num && a->num < d->num)
+	k[0] = (*stack1)->num;
+	k[1] = (*stack1)->next->num;
+	k[2] = (*stack1)->next->next->num;
+	k[3] = (*stack1)->next->next->next->num;
+	if (k[0] < k[1] && k[0] < k[2] && k[0] < k[3])
 		push_on_stack(stack1, stack2, 2);
-	else if (b->num < a->num && b->num < c->num && b->num < d->num)
+	else if (k[1] < k[0] && k[1] < k[2] && k[1] < k[3])
 	{
 		swap_all(stack1, 1);
 		push_on_stack(stack1, stack2, 2);
 	}
-	else if (c->num < a->num && c->num < b->num && c->num < d->num)
+	else if (k[2] < k[0] && k[2] < k[1] && k[2] < k[3])
 	{
-		rev_rotate_all(stack1, 1);
-		rev_rotate_all(stack1, 1);
+		rev_rotate_all_n(stack1, 2, 1);
 		push_on_stack(stack1, stack2, 2);
 	}
-	else if (d->num < a->num && d->num < b->num && d->num < c->num)
+	else if (k[3] < k[0] && k[3] < k[1] && k[3] < k[2])
 	{
 		rev_rotate_all(stack1, 1);
 		push_on_stack(stack1, stack2, 2);
@@ -47,37 +43,25 @@ void	algo_4(t_stack **stack1, t_stack **stack2)
 
 void	algo_5(t_stack **stack1, t_stack **stack2)
 {
-	int	b;
-	int	c;
-	int	d;
-	int	e;
+	int	k[5];
 
-	b = (*stack1)->next->num;
-	c = (*stack1)->next->next->num;
-	d = (*stack1)->next->next->next->num;
-	e = (*stack1)->next->next->next->next->num;
-	if ((*stack1)->num < b && (*stack1)->num < c && \
-	 (*stack1)->num < d && (*stack1)->num < e)
+	init_algo_5(stack1, k);
+	if (k[0] < k[1] && k[0] < k[2] && k[0] < k[3] && k[0] < k[4])
 		push_on_stack(stack1, stack2, 2);
-	else if (b < (*stack1)->num && b < c && b < d && b < e)
-	{
+	else if (k[1] < k[0] && k[1] < k[2] && k[1] < k[3] && k[1] < k[4])
 		swap_all(stack1, 1);
+	if (k[1] < k[0] && k[1] < k[2] && k[1] < k[3] && k[1] < k[4])
 		push_on_stack(stack1, stack2, 2);
-	}
-	else if (c < (*stack1)->num && c < b && c < d && c < e)
+	else if (k[2] < k[0] && k[2] < k[1] && k[2] < k[3] && k[2] < k[4])
+		rev_rotate_all_n(stack1, 3, 1);
+	if (k[2] < k[0] && k[2] < k[1] && k[2] < k[3] && k[2] < k[4])
+		push_on_stack(stack1, stack2, 2);
+	else if (k[3] < k[0] && k[3] < k[1] && k[3] < k[2] && k[3] < k[4])
 	{
-		rev_rotate_all(stack1, 1);
-		rev_rotate_all(stack1, 1);
-		rev_rotate_all(stack1, 1);
+		rev_rotate_all_n(stack1, 2, 1);
 		push_on_stack(stack1, stack2, 2);
 	}
-	else if (d < (*stack1)->num && d < b && d < c && d < e)
-	{
-		rev_rotate_all(stack1, 1);
-		rev_rotate_all(stack1, 1);
-		push_on_stack(stack1, stack2, 2);
-	}
-	else if (e < (*stack1)->num && e < b && e < c && e < d)
+	else if (k[4] < k[0] && k[4] < k[1] && k[4] < k[2] && k[4] < k[3])
 	{
 		rev_rotate_all(stack1, 1);
 		push_on_stack(stack1, stack2, 2);

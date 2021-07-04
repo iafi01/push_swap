@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 12:01:51 by liafigli          #+#    #+#              #
-#    Updated: 2021/07/03 16:32:53 by liafigli         ###   ########.fr        #
+#    Updated: 2021/07/03 17:04:02 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ INCLUDE = 	includes/push_swap.h
 FOLDER  = srcs
 
 FILES	=	push_swap.c warnings.c commands.c swaps.c swaps2.c commands2.c \
- 			alg_operations_2.c alg_operations.c algorithms.c algorithms_2.c push_swap2.c
+ 			alg_operations_2.c alg_operations.c algorithms.c algorithms_2.c push_swap2.c utils.c
 SRCS	= $(addprefix ${FOLDER}/, ${FILES})
 FILESS	=	 $(SRCS:.c=.o)
 
@@ -41,6 +41,7 @@ $(NAME): $(FILESS)
 clean:
 	@$(RM) $(FILESS)
 	@$(MAKE) clean -C ./libft
+	@rm -rf ./push_swap.dSYM
 
 fclean: clean
 	@$(RM) $(AOUT)
