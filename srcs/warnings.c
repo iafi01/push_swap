@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:53 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/05 15:04:37 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 15:31:35 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,16 @@ void	init_algo_5(t_stack **stack1, int *k)
 	k[4] = (*stack1)->next->next->next->next->num;
 }
 
-void	my_free(int len, int *integers)
+void	my_free(int len, t_stack *integers)
 {
+	t_stack	*tmp;
 	int i = 0;
 	while (i < len)
 	{
+		tmp = integers->next;
 		if (integers)
 			free(integers);
 		i++;
+		integers = tmp;
 	}	
 }
