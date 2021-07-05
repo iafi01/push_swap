@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/04 13:21:06 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 11:40:39 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ void	pushback_all(t_stack **StackA, t_stack **StackB);
 void	ra_rra_pos(t_stack **a, int pos);
 int		compare_smallest_pos(t_stack **Stack, int chunk);
 int		smallest_pos(t_stack **Stack);
-void	sort_twenty(t_stack **StackA, t_stack **StackB);
-void	sort_fifty(t_stack **StackA, t_stack **StackB);
-void	sort_hundred(t_stack **StackA, t_stack **StackB);
-void	sort_twofifty(t_stack **StackA, t_stack **StackB);
-void	sort_fivehundred(t_stack **StackA, t_stack **StackB);
+void	algoritmo(t_stack **StackA, t_stack **StackB, int n);
+int		get_chunks(int numbers);
 
 #endif

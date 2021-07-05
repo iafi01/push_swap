@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 10:47:12 by ldalle-a          #+#    #+#             */
-/*   Updated: 2021/07/02 16:49:12 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 11:25:53 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,10 @@ void	ra_rra_pos(t_stack **a, int pos)
 	if (pos > size / 2)
 	{
 		pos = size - pos;
-		while (pos != 0)
-		{
-			rev_rotate_all(a, 1);
-			pos--;
-		}
+		rev_rotate_all_n(a, pos, 1);
 	}
 	else if (pos <= size / 2)
-	{
-		while (pos != 0)
-		{
-			rotate_all(a, 1);
-			pos--;
-		}
-	}
+		rotate_all_n(a, pos, 1);
 }
 
 void	rb_rrb_pos(t_stack **b, int pos)
@@ -92,20 +82,10 @@ void	rb_rrb_pos(t_stack **b, int pos)
 	if (pos > size / 2)
 	{
 		pos = size - pos;
-		while (pos != 0)
-		{
-			rev_rotate_all(b, 2);
-			pos--;
-		}
+		rev_rotate_all_n(b, pos, 2);
 	}
 	else if (pos <= size / 2)
-	{
-		while (pos != 0)
-		{
-			rotate_all(b, 2);
-			pos--;
-		}
-	}
+		rotate_all_n(b, pos, 2);
 }
 
 void	pushback_all(t_stack **StackA, t_stack **StackB)

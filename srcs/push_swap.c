@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/04 16:05:15 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 14:03:49 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi_swap(const char *str)
 {
 	int			i;
 	int			sign;
-	long int	sum;
+	long  int	sum;
 
 	sum = 0;
 	sign = 1;
@@ -36,7 +36,7 @@ int	ft_atoi_swap(const char *str)
 		else
 			return (-1);
 	}
-	if (sum < -2147483648 || sum > 2147483647)
+	if (sum * sign < -2147483648 || sum * sign > 2147483647)
 		return (-1);
 	return (sum * sign);
 }

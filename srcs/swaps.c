@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 11:51:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/04 15:01:32 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 11:38:04 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,14 +110,16 @@ int	ft_tree(int params, t_stack **stack1, t_stack **stack2)
 	else if (params == 5)
 		algo_5(stack1, stack2);
 	else if (params >= 6 && params <= 20)
-		sort_twenty(stack1, stack2);
+		algoritmo(stack1, stack2, get_chunks(20));
 	else if (params > 20 && params <= 50)
-		sort_fifty(stack1, stack2);
+		algoritmo(stack1, stack2, get_chunks(50));
 	else if (params > 50 && params <= 100)
-		sort_hundred(stack1, stack2);
+		algoritmo(stack1, stack2, get_chunks(100));
 	else if (params > 100 && params <= 250)
-		sort_twofifty(stack1, stack2);
-	else if (params > 100 && params <= 500)
-		sort_fivehundred(stack1, stack2);
+		algoritmo(stack1, stack2, get_chunks(250));
+	else if (params > 250 && params <= 500)
+		algoritmo(stack1, stack2, get_chunks(500));
+	else if (params > 500)
+		algoritmo(stack1, stack2, get_chunks(501));
 	return (0);
 }
