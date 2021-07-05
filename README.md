@@ -8,4 +8,7 @@ compila con -g<br>
 lldb a.out<br>
 b main<br>
 run<br>
-n<br>
+n<br><br><br>
+
+
+gcc flags -fsanitize=address
