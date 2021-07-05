@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:44:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/05 11:40:39 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 15:02:08 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 //warnings
 void	_error(char *s);
 void	init_algo_5(t_stack **stack1, int *k);
+void my_free(int len, int *integers);
 
 //utils
 int		check_ordine(t_stack **stack);

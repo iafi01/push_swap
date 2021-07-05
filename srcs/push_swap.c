@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/05 14:30:49 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 15:06:50 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,11 +129,14 @@ int	main(int argc, char **argv)
 	if (len == 1)
 		return (0);
 	integers = malloc(sizeof(int) * len);
+	if (!integers)
+		return (0);
 	if (len != argc - 1)
 		argv = argv_unico(argv, len, argc);
 	check_value(len + 1, argv, integers);
 	stack1 = copy_struct(integers, len + 1);
 	stack2 = NULL;
 	set_index(&stack1);
-	ft_tree(len, &stack1, &stack2);
+	free(stack1);
+	free(integers);
 }

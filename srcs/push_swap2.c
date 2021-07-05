@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/04 16:04:32 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 14:54:56 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_stack	*create_new_node(void)
 	t_stack	*first;
 
 	first = (t_stack *)malloc(sizeof(t_stack));
+	if (!first)
+		return (NULL);
 	first->num = 0;
 	first->next = NULL;
 	return (first);
