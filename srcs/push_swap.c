@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 12:01:46 by liafigli          #+#    #+#             */
-/*   Updated: 2021/07/05 15:26:27 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/05 15:52:40 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ int	main(int argc, char **argv)
 	stack1 = copy_struct(integers, len + 1);
 	stack2 = NULL;
 	set_index(&stack1);
+	ft_tree(len, &stack1, &stack2);
 	my_free(len, stack1);
 	free(integers);
 }
