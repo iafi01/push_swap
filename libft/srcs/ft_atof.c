@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 17:10:15 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/12 12:26:08 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/07/06 13:37:31 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_is_space(char c)
 		|| c == '\f');
 }
 
-static int 	ft_first(char *str, int i, int fac)
+static int	ft_first(char *str, int i, int fac)
 {
 	if (str[i] == '-')
 		return (-1);
